@@ -15,19 +15,19 @@
 #
 
 one:
-  name: MyString
-  role: MyString
-  protective: false
+  name: FirstPart
+  role: FirstRole
+  protective: true
   vulnerable: false
-  description: MyText
+  description: FirstDescription
   photo: MyString
-  integrated: false
+  integrated: true
 
 two:
-  name: MyString
-  role: MyString
+  name: SecondPart
+  role: SecondRole
   protective: false
-  vulnerable: false
-  description: MyText
+  vulnerable: true
+  description: SecondDescription
   photo: MyString
   integrated: false

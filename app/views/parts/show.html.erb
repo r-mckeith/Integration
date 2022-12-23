@@ -1,0 +1,23 @@
+<div class="col d-flex justify-content-center">
+  <div class="card" style="width: 18rem;">
+    <img src="<%= @part.photo %>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= @part.name %></h5>
+      <p class="card-text"><%= @part.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Role: <%= @part.role %></li>
+      <% if @part.vulnerable %>
+        <li class="list-group-item">Vulnerable</li>
+      <% end %>
+      <% if @part.protective %>
+        <li class="list-group-item">Protective</li>
+      <% end %>
+    </ul>
+    <div class="card-body">
+       <%= link_to 'Edit', edit_part_path(@part), class: 'button' %>
+       <%= link_to 'Delete', part_path(@part), class: 'button', 
+                             method: :delete, data: { confirm: 'Really!?' } %>
+    </div>
+  </div>
+</div>

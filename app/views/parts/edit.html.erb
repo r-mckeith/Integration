@@ -1,0 +1,6 @@
+<%= turbo_frame_tag @part do %>
+  <div>
+    <h1>Editing Part: <%= @part.name %></h1>
+    <%= render 'form', part: @part %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_with model: part, local: true do |f| %>
+
+<%= render "shared/errors", object: part %>
+
+<%= f.label :name %>
+<%= f.text_field :name, autofocus: true %>
+
+<%= f.label :role %>
+<%= f.select :role, Part::ROLES, prompt: "Pick one" %>
+
+<%= f.label :description %>
+<%= f.text_area :description, rows: 10 %>
+
+<%= f.label :vulnerable %>
+<%= f.check_box :vulnerable %>
+
+<%= f.label :protective %>
+<%= f.check_box :protective %>
+
+<%= f.label :photo %>
+<%= f.text_field :photo %>
+
+<%= f.label :integrated %>
+<%= f.check_box :integrated %>
+
+<%= f.submit %>
+<% end %>
