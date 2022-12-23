@@ -1,0 +1,13 @@
+<% @parts.each do |part| %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card" style="width: 6em; border: none;">
+         <%= turbo_frame_tag part do %>
+          <img src="<%= part.photo %>" class="rounded-circle hover-shadow" style="width: 100px; height: 100px; object-fit: cover;" alt="Avatar" />
+
+          <p class="text-muted" style="text-align: center;"><%= part.name %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
