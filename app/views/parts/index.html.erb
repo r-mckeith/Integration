@@ -1,18 +1,20 @@
 <h1 style="text-align: center;">Parts</h1>
 <div class="d-flex flex-wrap">
-<% @parts.each do |part| %>
-  <div class="row">
-    <div class="col d-flex flex-wrap">
-      <div class="card m-3" style="width: 6em; border: none;">
-        <%= turbo_frame_tag part do %>
-          <%= link_to image_tag(part.photo, class: "rounded-circle hover-shadow", style: "width: 100px; height: 100px; object-fit: cover;", alt: "Avatar"), part_path(part) %>
-
-          <p class="text-muted" style="text-align: center;"><%= part.name %></p>
-        <% end %>
+  <% @parts.each do |part| %>
+    <div class="row">
+      <div class="col d-flex flex-wrap">
+        <div class="card m-3" style="width: 6em; border: none;">
+          <%= turbo_frame_tag part do %>
+            <%= link_to image_tag(part.photo, class: "rounded-circle hover-shadow #{ part.name }", style: "width: 100px; height: 100px; object-fit: cover;", alt: "https://i.stack.imgur.com/l60Hf.png"), part_path(part) %>
+            <p class="text-muted" style="text-align: center;"><%= part.name %></p>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
 
-<%= link_to "New part", new_part_path, class: "btn btn-primary"%>
+<%= link_to new_part_path, class: "btn btn-primary" do %>
+  <i class="bi bi-plus"></i> Add Part
+<% end %>
+

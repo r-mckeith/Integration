@@ -14,13 +14,13 @@
 #  updated_at  :datetime         not null
 #
 
-one:
-  name: FirstPart
+first:
+  name: First
   role: FirstRole
   protective: true
   vulnerable: false
   description: FirstDescription
-  photo: MyString
+  photo: https://i.stack.imgur.com/l60Hf.png
   integrated: true
 
 two:
@@ -29,5 +29,5 @@ two:
   protective: false
   vulnerable: true
   description: SecondDescription
-  photo: MyString
+  photo: https://i.stack.imgur.com/l60Hf.png
   integrated: false
