@@ -17,6 +17,12 @@ class Part < ApplicationRecord
   validates_presence_of :name, :role
   validates :description, length: { minimum: 25 }
 
-  ROLES = %w(Manager Firefighter Exile)
-  validates :role, inclusion: { in: ROLES }
+  ROLES = %w[Manager Firefighter Exile].freeze
+  validates :role, inclusion: { in: ROLES }, unless: :self_part?
+
+  private
+
+  def self_part?
+    name == 'Self'
+  end
 end

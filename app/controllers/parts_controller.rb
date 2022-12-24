@@ -45,6 +45,6 @@ class PartsController < ApplicationController
   end
 
   def part_params
-    params.require(:part).permit(:name, :role, :protective, :vulnerable, :checkbox_value, :description, :photo, :integrated)
+    params.require(:part).permit(:name, :role, :protective, :vulnerable, :description, :photo, :integrated)
   end
 end

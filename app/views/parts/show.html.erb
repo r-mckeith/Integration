@@ -13,6 +13,11 @@
       <% if @part.protective %>
         <li class="list-group-item">Protective</li>
       <% end %>
+       <% if @part.integrated %>
+        <li class="list-group-item">Integrated</li>
+      <% else %>
+        <li class="list-group-item">Not integrated</li>
+      <% end %>
     </ul>
     <div class="card-body">
        <%= link_to 'Edit', edit_part_path(@part), class: 'button' %>
