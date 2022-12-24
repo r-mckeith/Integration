@@ -15,7 +15,7 @@
 #
 
 first:
-  name: First
+  name: FirstPart
   role: FirstRole
   protective: true
   vulnerable: false
@@ -23,7 +23,7 @@ first:
   photo: https://i.stack.imgur.com/l60Hf.png
   integrated: true
 
-two:
+second:
   name: SecondPart
   role: SecondRole
   protective: false
