@@ -1,20 +1,107 @@
-<h1 style="text-align: center;">Parts</h1>
-<div class="d-flex flex-wrap">
-  <% @parts.each do |part| %>
-    <div class="row">
-      <div class="col d-flex flex-wrap">
-        <div class="card m-3" style="width: 6em; border: none;">
-          <%= turbo_frame_tag part do %>
-            <%= link_to image_tag(part.photo, id: "#{ part.name }", class: "rounded-circle hover-shadow", style: "width: 100px; height: 100px; object-fit: cover;", alt: "https://i.stack.imgur.com/l60Hf.png"), part_path(part) %>
-            <p class="text-muted" style="text-align: center;"><%= part.name %></p>
-          <% end %>
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">The Internal Family Systems Model (IFS) is an integrative approach to individual psychotherapy developed by Richard C. Schwartz in the 1980s. It combines systems thinking with the view that the mind is made up of relatively discrete subpersonalities, each with its own unique viewpoint and qualities. IFS uses family systems theory to understand how these collections of subpersonalities are organized.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">More Info</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
         </div>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <strong>Parts Tracker</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-<%= link_to new_part_path, class: "btn btn-primary" do %>
-  <i class="bi bi-plus"></i> Add Part
-<% end %>
+<main>
+
+  <section class="py-3 text-center container">
+    <div class="row py-lg-5">
+      <div class="col">
+        <p class="lead text-muted"></p>
+        <p>
+          <%= link_to "Add a part", {controller: "parts", action: "new"}, class: "btn btn-primary" %>
+          <a href="#" class="btn btn-secondary my-2">View a group</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% @parts.each do |part| %>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="<%= part.photo %>" width="100%" height="225", style="object-fit: cover;">
+
+              <div class="card-body">
+                <p class="card-text" style="text-align: center;"><%= part.name %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group w-100">
+                    <%= link_to "View", part, class: "btn btn-outline-secondary" %>
+                    <%= link_to "Edit", edit_part_path(part), class: "btn btn-outline-secondary" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="col">
+            <div class="card shadow-sm">
+              <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" width="100%" height="225", style="object-fit: cover;">
+
+              <div class="card-body">
+                <p class="card-text" style="text-align: center;">New Part</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                <%= link_to "Add", new_part_path, class: "btn btn-outline-secondary w-100" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <div class="col">
+            <div class="card shadow-sm">
+              <img src="https://thumbs.dreamstime.com/t/default-avatar-profile-icon-gray-placeholder-man-and-woman-179548878.jpg" width="100%" height="225", style="object-fit: cover;">
+
+              <div class="card-body">
+                <p class="card-text" style="text-align: center;">Groups</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                <%= link_to "View", new_part_path, class: "btn btn-outline-secondary w-100" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+    </p>
+    <p class="mb-1">The Parts Tracker is &copy; The Here and Now Company. The information on this site is not intended or implied to be a substitute for professional medical advice, diagnosis or treatment. All content, including text, graphics, images and information, contained on or available through this web site is for general information purposes only.</p>
+    <p class="mb-0">New to parts work? Visit <a href="/">this site</a> for more info or order a copy of <a href="../getting-started/introduction/">No Bad Parts</a> today.</p>
+  </div>
+</footer>
 
