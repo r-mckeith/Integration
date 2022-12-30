@@ -5,8 +5,7 @@ class PartsController < ApplicationController
     @parts = Part.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @part = Part.new
@@ -22,8 +21,7 @@ class PartsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @part.update(part_params)
