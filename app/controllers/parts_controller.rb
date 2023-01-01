@@ -17,6 +17,7 @@ class PartsController < ApplicationController
     if @part.save
       redirect_to parts_path, notice: 'Your new part was saved'
     else
+      flash.now[:error] = 'There was a problem saving your part'
       render :new
     end
   end
@@ -27,13 +28,14 @@ class PartsController < ApplicationController
     if @part.update(part_params)
       redirect_to part_path, notice: 'Your part was updated'
     else
+      flash.now[:error] = 'There was a problem updating your part'
       render :edit
     end
   end
 
   def destroy
     @part.destroy
-    redirect_to parts_path, notice: 'Your part was deleted'
+    redirect_to parts_path, status: :see_other, notice: 'Your part was deleted'
   end
 
   private

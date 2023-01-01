@@ -18,3 +18,24 @@ form:not([class="button_to"]) {
     margin-top: 1.5rem;
   }
 }
+
+.flash {
+  @extend .alert;
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+
+  &.notice {
+    @extend .alert-success;
+  }
+
+  &.alert {
+    @extend .alert-danger;
+  }
+
+  &.danger {
+    background-color: #FFA715;
+  }
+}
+
+
