@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   passwordless_for :users
+  resources :users
   resources :parts
-  root 'parts#index'
+  root 'static#index'
 end
