@@ -65,3 +65,4 @@ gem "cssbundling-rails", "~> 1.1"
 
 gem 'stimulus-rails'
 gem 'turbo-rails'
+gem 'passwordless'
