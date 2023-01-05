@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_130642) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_130559) do
   create_table "parts", force: :cascade do |t|
     t.string "name"
     t.string "role"
@@ -21,6 +21,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_130642) do
     t.boolean "integrated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_parts_on_user_id"
   end
 
   create_table "passwordless_sessions", force: :cascade do |t|
@@ -44,4 +46,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_130642) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "parts", "users"
 end

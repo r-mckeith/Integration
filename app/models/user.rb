@@ -9,6 +9,8 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
+  has_many :parts, dependent: :destroy
+
   validates :email, presence: true, uniqueness: { case_sensitive: false }
 
   passwordless_with :email
