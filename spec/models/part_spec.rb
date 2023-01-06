@@ -1,5 +1,29 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: parts
+#
+#  id          :integer          not null, primary key
+#  description :text
+#  integrated  :boolean
+#  name        :string
+#  photo       :string
+#  protective  :boolean
+#  role        :string
+#  vulnerable  :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer          not null
+#
+# Indexes
+#
+#  index_parts_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  user_id  (user_id => users.id)
+#
 require 'rails_helper'
 
 RSpec.describe Part, type: :model do

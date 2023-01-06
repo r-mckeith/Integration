@@ -12,8 +12,19 @@
 #  vulnerable  :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer          not null
+#
+# Indexes
+#
+#  index_parts_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  user_id  (user_id => users.id)
 #
 class Part < ApplicationRecord
+  belongs_to :user
+
   validates_presence_of :name, :role
   validates :description, length: { minimum: 25 }
 

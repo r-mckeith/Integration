@@ -1,3 +1,19 @@
 class ApplicationController < ActionController::Base
+  include Passwordless::ControllerHelpers
+
+  helper_method :current_user
+
   add_flash_types(:danger)
+
+  private
+
+  def current_user
+    @current_user ||= authenticate_by_session(User)
+  end
+
+  def require_user!
+    return if current_user
+
+    redirect_to users.sign_in_path, alert: 'Please sign in to view this content'
+  end
 end
