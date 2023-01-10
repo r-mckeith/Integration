@@ -1,8 +1,20 @@
 class PartsController < ApplicationController
+  require 'faker'
   before_action :set_part, only: %i[show edit update destroy]
+  # layout :static, only: [:static]
+  layout 'static', only: [:static]
 
   def index
     @parts = Part.all
+  end
+
+  def static
+    @fake_images = []
+
+    1.times do
+      Faker::LoremFlickr.unique.clear
+      @fake_images << "#{Faker::LoremFlickr.unique.image}/#{Faker::Name.first_name}"
+    end
   end
 
   def show; end
