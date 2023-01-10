@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in @user
-      redirect_to parts_path
+      redirect_to user_parts_path(@user)
     else
       render :new
     end

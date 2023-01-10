@@ -22,8 +22,8 @@
                 <p class="card-text" style="text-align: center;"><%= part.name %></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group w-100">
-                    <%= link_to "View", part, class: "btn btn-outline-secondary" %>
-                    <%= link_to "Edit", edit_part_path(part), class: "btn btn-outline-secondary" %>
+                    <%= link_to "View", user_part_path(part.user, part), class: "btn btn-outline-secondary" %>
+                    <%= link_to "Edit", edit_user_part_path(part.user, part), class: "btn btn-outline-secondary" %>
                   </div>
                 </div>
               </div>
@@ -33,5 +33,6 @@
       </div>
     </div>
   </div>
+    <%= link_to "Sign out", users.sign_out_path, class: "bg-sky-500 px-3 py-2 font-semibold rounded" %>
 </main>
 

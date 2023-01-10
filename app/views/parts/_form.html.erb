@@ -1,4 +1,5 @@
-<%= form_with model: part, data: {turbo: false} do |f| %>
+<%# ASK %>
+<%= form_with model: [:user, part], data: {turbo: false} do |f| %>
 
 <%= f.label :name %>
 <%= f.text_field :name, autofocus: true %>
